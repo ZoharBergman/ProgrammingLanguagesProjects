@@ -1,0 +1,14 @@
+<!--{% block content %}-->
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li><a>{{ message }}</a></li>
+        {% endfor %}
+        </ul>
+        <textarea rows="4" cols="50"></textarea>
+        <ul />
+        <button>Send</button>
+    {% else %}
+        <p>No messages are available.</p>
+    {% endif %}
+<!--{% endblock %}-->
