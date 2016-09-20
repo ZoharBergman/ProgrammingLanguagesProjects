@@ -1,14 +1,26 @@
-<!--{% block content %}-->
+{% extends "watsappApp\base.html" %}
+
+{% block head %} {{ block.super }} [Chat] {% endblock %}
+{% block header %} {% endblock %}
+
+{% block content %}
     {% if messages %}
+        <h1>Your messages:</h1>
         <ul>
         {% for message in messages %}
             <li><a>{{ message }}</a></li>
         {% endfor %}
         </ul>
-        <textarea rows="4" cols="50"></textarea>
-        <ul />
-        <button>Send</button>
     {% else %}
         <p>No messages are available.</p>
     {% endif %}
-<!--{% endblock %}-->
+    <br/>
+    <label>Send a new message:</label>
+    <form action="{% url 'watsappApp:message' user_id %}" method="post">
+        {% csrf_token %}
+        <textarea rows="4" cols="50" name="message_text"></textarea>
+        <br/>
+        <input type="submit" value="Send" />
+    </form>
+    <a href="{% url 'watsappApp:home' %}">Go home page</a>
+{% endblock %}

@@ -1,4 +1,9 @@
-<!--{% block content %}-->
+{% extends "watsappApp\base.html" %}
+
+{% block head %} {{ block.super }} [Home] {% endblock %}
+{% block header %} {% endblock %}
+
+{% block content %}
     {% if users %}
         <h1>Users:</h1>
         <ul>
@@ -9,4 +14,4 @@
     {% else %}
         <p>No users are available.</p>
     {% endif %}
-<!--{% endblock %}-->
+{% endblock %}

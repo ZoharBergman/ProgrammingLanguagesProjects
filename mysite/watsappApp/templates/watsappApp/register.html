@@ -1,0 +1,32 @@
+{% extends "watsappApp\base.html" %}
+
+{% block title %} {{ block.super }} [Users list] {% endblock %}
+{% block header %} {% endblock %}
+{% block content %}
+    <html>
+        <head>
+            <title>Watsapp</title>
+        </head>
+
+        <body>
+            <h1>Register to Watsapp</h1>
+            {% if Error %}
+                <b>{{Error}}</b>
+                <br/>
+            {% endif %}
+            <form id="register_form" method="post" action="{% url 'watsappApp:register' %}">
+                {% csrf_token %}
+                <b>Username: </b><input type="text" name="username" value="" size="50" />
+                <br />
+                <br>
+                <b>Password: </b><input type="password" name="password" value="" size="50" />
+                <br />
+                <br>
+                <b>Password repeat: </b><input type="password" name="password_repeat" value="" size="50" />
+                <br />
+                <br>
+                <input type="submit" value="Register!" />
+            </form>
+        </body>
+    </html>
+{% endblock %}
